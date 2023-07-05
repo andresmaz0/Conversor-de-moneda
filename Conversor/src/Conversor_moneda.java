@@ -26,7 +26,12 @@ public class Conversor_moneda {
 	public static void entrada_datos() {
 		try{
 			double valor = Double.parseDouble(JOptionPane.showInputDialog(null, "ingresa la cantidad de dinero que se desea convertir:"));
-			menu_conversor(valor);
+			if(valor>0) {
+				menu_conversor(valor);
+			}else {
+				JOptionPane.showMessageDialog(null, "Error Ingresa por favor numeros mayores a 0");
+				entrada_datos();
+			}	
 		}catch(Exception exception) {
 			JOptionPane.showMessageDialog(null, "Error Ingresa por favor solo numeros");
 			entrada_datos();
