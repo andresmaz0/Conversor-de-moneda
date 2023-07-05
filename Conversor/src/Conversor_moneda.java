@@ -30,12 +30,12 @@ public class Conversor_moneda {
 	
 	public static Object dolar_to_other() {
 		
-		String [] menu = menu_dolar_to_other();
+		String [] menu = menu_monedas();
 		Object mensaje =  JOptionPane.showInputDialog(null,"Selecciona la operación que deseas realizar","Cambios de divisa",JOptionPane.QUESTION_MESSAGE,null,menu,menu[0]);
 		return mensaje;
 	}
 	
-	public static String[] menu_dolar_to_other() {
+	public static String[] menu_monedas() {
 		//inicializando menu
 		String [] menu = new String[6];
 		
