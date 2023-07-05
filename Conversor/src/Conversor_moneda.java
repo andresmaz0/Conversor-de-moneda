@@ -42,28 +42,22 @@ public class Conversor_moneda {
 	}
 	
 	public static String[] menu_monedas(String opcion) {
+		//inicializando menu
+		String [] menu = new String[7];
 		
 		if(opcion.equalsIgnoreCase("dolar_to_other")) {
-			//inicializando menu
-			String [] menu = new String[7];
-			
 			//llenando mi vector menu
 			for (int i = 0 ; i < menu.length; i++) {
 				menu[i]=("De "+coin[0]+" a "+coin[i+1]);
 			}
-			//retorno una cadena de strings
-			return menu;
 		} else {
-			//inicializando menu
-			String [] menu = new String[7];
-			
 			//llenando mi vector menu
 			for (int i = 0 ; i < menu.length; i++) {
 				menu[i]=("De "+coin[i+1]+" a "+coin[0]);
 			}
-			//retorno una cadena de strings
-			return menu;
 		}
+		//retorno una cadena de strings
+		return menu;
 	}
 	
 	public static void calculos(double valor_ingresado,String mensaje,String opcion) {
