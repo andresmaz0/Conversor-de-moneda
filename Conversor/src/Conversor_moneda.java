@@ -15,7 +15,7 @@ public class Conversor_moneda {
 	Won = 1299.05;
 	Yuan = 7.24;
 	*/
-	static String [] coin = {"Dolar","Pesos Colombianos","Pesos Mexicanos","Euros","Libras esterlinas","Yenes Japoneses","Wones Coreanos","Yuanes Chinos"}; 
+	static String [] coin = {"Dolares","Pesos Colombianos","Pesos Mexicanos","Euros","Libras esterlinas","Yenes Japoneses","Wones Coreanos","Yuanes Chinos"}; 
 	static double [] list_valores = {4157.98,17.07,0.79,0.92,144.67,1299.05,7.24};
 	
 	//constructor
@@ -39,14 +39,14 @@ public class Conversor_moneda {
 		String opcion = "other_to_dolar";
 		String [] menu = menu_monedas(opcion);
 		String mensaje = (String) JOptionPane.showInputDialog(null,"Selecciona la operación que deseas realizar","Cambios de divisa",JOptionPane.QUESTION_MESSAGE,null,menu,menu[0]);
-		calculos(valor,mensaje);
+		calculos(valor,mensaje,opcion);
 	}
 	
 	public static void dolar_to_other(double valor) {
 		String opcion = "dolar_to_other";
 		String [] menu = menu_monedas(opcion);
 		String mensaje = (String) JOptionPane.showInputDialog(null,"Selecciona la operación que deseas realizar","Cambios de divisa",JOptionPane.QUESTION_MESSAGE,null,menu,menu[0]);
-		calculos(valor,mensaje);
+		calculos(valor,mensaje,opcion);
 	}
 	
 	public static String[] menu_monedas(String opcion) {
@@ -74,10 +74,18 @@ public class Conversor_moneda {
 		}
 	}
 	
-	public static void calculos(double valor_ingresado,String mensaje) {
-		for (int i = 0; i < list_valores.length; i++) {
-			if(mensaje.equalsIgnoreCase("De "+coin[0]+" a "+coin[i+1])) {
-				JOptionPane.showMessageDialog(null, "El resultado fue " + (valor_ingresado * list_valores[i]) +" "+ coin[i+1]);
+	public static void calculos(double valor_ingresado,String mensaje,String opcion) {
+		if (opcion.equalsIgnoreCase("dolar_to_other")) {
+			for (int i = 0; i < list_valores.length; i++) {
+				if(mensaje.equalsIgnoreCase("De "+coin[0]+" a "+coin[i+1])) {
+					JOptionPane.showMessageDialog(null, "El resultado fue " + (valor_ingresado * list_valores[i]) +" "+ coin[i+1]);
+				}
+			}
+		} else {
+			for (int i = 0; i < list_valores.length; i++) {
+				if(mensaje.equalsIgnoreCase("De "+coin[i+1]+" a "+coin[0])) {
+					JOptionPane.showMessageDialog(null, "El resultado fue " + (valor_ingresado * 1/list_valores[i]) +" "+ coin[0]);
+				}
 			}
 		}
 	}
