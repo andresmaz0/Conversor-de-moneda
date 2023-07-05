@@ -15,7 +15,7 @@ public class Conversor_moneda {
 	Won = 1299.05;
 	Yuan = 7.24;
 	*/
-	static String [] coin = {"Dolar","Peso Colombiano","Peso Mexicano","Euro","Libra esterlina","Yen Japones","Won Coreano","Yuan Chino"}; 
+	static String [] coin = {"Dolar","Pesos Colombianos","Pesos Mexicanos","Euros","Libras esterlinas","Yenes Japoneses","Wones Coreanos","Yuanes Chinos"}; 
 	static double [] list_valores = {4157.98,17.07,0,79,0.92,144.67,1299.05,7.24};
 	
 	//constructor
@@ -57,7 +57,7 @@ public class Conversor_moneda {
 	public static void calculos(double valor_ingresado,String mensaje) {
 		for (int i = 0; i < coin.length-1; i++) {
 			if(mensaje.toString().equalsIgnoreCase("De "+coin[0]+" a "+coin[i+1])) {
-				JOptionPane.showMessageDialog(null, "El resultado fue " + (valor_ingresado * list_valores[i]) +" "+ coin[0] +"es");
+				JOptionPane.showMessageDialog(null, "El resultado fue " + (valor_ingresado * list_valores[i]) +" "+ coin[i+1]);
 			}
 		}
 	}
