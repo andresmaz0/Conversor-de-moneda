@@ -31,31 +31,47 @@ public class Conversor_moneda {
 			dolar_to_other(valor);
 		}
 		else {
-			System.out.println("opcion no disponible");
+			other_to_dolar(valor);
 		}
 	}
 	
 	public static void other_to_dolar(double valor) {
-		
-	}
-	
-	public static void dolar_to_other(double valor) {
-		
-		String [] menu = menu_monedas();
+		String opcion = "other_to_dolar";
+		String [] menu = menu_monedas(opcion);
 		String mensaje = (String) JOptionPane.showInputDialog(null,"Selecciona la operación que deseas realizar","Cambios de divisa",JOptionPane.QUESTION_MESSAGE,null,menu,menu[0]);
 		calculos(valor,mensaje);
 	}
 	
-	public static String[] menu_monedas() {
-		//inicializando menu
-		String [] menu = new String[7];
+	public static void dolar_to_other(double valor) {
+		String opcion = "dolar_to_other";
+		String [] menu = menu_monedas(opcion);
+		String mensaje = (String) JOptionPane.showInputDialog(null,"Selecciona la operación que deseas realizar","Cambios de divisa",JOptionPane.QUESTION_MESSAGE,null,menu,menu[0]);
+		calculos(valor,mensaje);
+	}
+	
+	public static String[] menu_monedas(String opcion) {
 		
-		//llenando mi vector menu
-		for (int i = 0 ; i < menu.length; i++) {
-			menu[i]=("De "+coin[0]+" a "+coin[i+1]);
+		if(opcion.equalsIgnoreCase("dolar_to_other")) {
+			//inicializando menu
+			String [] menu = new String[7];
+			
+			//llenando mi vector menu
+			for (int i = 0 ; i < menu.length; i++) {
+				menu[i]=("De "+coin[0]+" a "+coin[i+1]);
+			}
+			//retorno una cadena de strings
+			return menu;
+		} else {
+			//inicializando menu
+			String [] menu = new String[7];
+			
+			//llenando mi vector menu
+			for (int i = 0 ; i < menu.length; i++) {
+				menu[i]=("De "+coin[i+1]+" a "+coin[0]);
+			}
+			//retorno una cadena de strings
+			return menu;
 		}
-		//retorno una cadena de strings
-		return menu;
 	}
 	
 	public static void calculos(double valor_ingresado,String mensaje) {
