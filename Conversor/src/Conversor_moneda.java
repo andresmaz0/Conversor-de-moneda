@@ -29,6 +29,13 @@ public class Conversor_moneda {
 	}
 	
 	public static Object dolar_to_other() {
+		
+		String [] menu = menu_dolar_to_other();
+		Object mensaje =  JOptionPane.showInputDialog(null,"Selecciona la operación que deseas realizar","Cambios de divisa",JOptionPane.QUESTION_MESSAGE,null,menu,menu[0]);
+		return mensaje;
+	}
+	
+	public static String[] menu_dolar_to_other() {
 		//inicializando menu
 		String [] menu = new String[6];
 		
@@ -36,8 +43,7 @@ public class Conversor_moneda {
 		for (int i = 0 ; i < menu.length; i++) {
 			menu[i]=("De "+coin[0]+" a "+coin[i+1]);
 		}
-		
-		Object mensaje =  JOptionPane.showInputDialog(null,"Selecciona la operación que deseas realizar","Cambios de divisa",JOptionPane.QUESTION_MESSAGE,null,menu,menu[0]);
-		return mensaje;
+		//retorno una cadena de strings
+		return menu;
 	}
 }
