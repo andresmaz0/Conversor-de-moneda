@@ -2,7 +2,7 @@ import javax.swing.JOptionPane;
 
 public class Main {
 	
-	public static void inicio() {
+	public static String inicio() {
 		//Creando menu desplegable
 		String [] menu = {"Moneda","Temperatura"};
 		String seleccion = (String) JOptionPane.showInputDialog(null,"Selecciona un conversor","Conversores",JOptionPane.QUESTION_MESSAGE,null,menu,menu[0]);
@@ -10,9 +10,9 @@ public class Main {
 	}
 	
 	public static void main(String[] args) {
-		inicio();
+		String seleccion = inicio();
 		//Entrada de variables
-		if(seleccion "Moneda") {
+		if(seleccion.equalsIgnoreCase("Moneda")) {
 			Conversor_moneda divisa = new Conversor_moneda();
 			
 		}
