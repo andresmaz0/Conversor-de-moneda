@@ -65,14 +65,14 @@ public class Conversor_moneda {
 			for (int i = 0; i < list_valores.length; i++) {
 				if(mensaje.equalsIgnoreCase("De "+coin[0]+" a "+coin[i+1])) {
 					double redondeo = Math.round(valor_ingresado * list_valores[i]*100)/100d;
-					JOptionPane.showMessageDialog(null, "El resultado fue " + (redondeo) +" "+ coin[i+1]);
+					JOptionPane.showMessageDialog(null, "El resultado fue " + (redondeo) +"$ "+ coin[i+1]);
 				}
 			}
 		} else {
 			for (int i = 0; i < list_valores.length; i++) {
 				if(mensaje.equalsIgnoreCase("De "+coin[i+1]+" a "+coin[0])) {
 					double redondeo = Math.round(valor_ingresado * 1/list_valores[i] *100)/100d;
-					JOptionPane.showMessageDialog(null, "El resultado fue " + (redondeo) +" "+ coin[0]);
+					JOptionPane.showMessageDialog(null, "El resultado fue " + (redondeo) +"$ "+ coin[0]);
 				}
 			}
 		}
