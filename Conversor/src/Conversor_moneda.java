@@ -12,7 +12,7 @@ public class Conversor_moneda {
 	static double yen = 144.67;
 	static double won = 1299.05;
 	static double yuan = 7.24;
-	static String [] monedas = {"Dolar","Peso Colombiano","Peso Mexicano","Euro","Libra esterlina","Yen Japones","Won Coreano","Yuan Chino"}; 
+	static String [] coin = {"Dolar","Peso Colombiano","Peso Mexicano","Euro","Libra esterlina","Yen Japones","Won Coreano","Yuan Chino"}; 
 	
 	//constructor
 	public Conversor_moneda() {
@@ -20,11 +20,24 @@ public class Conversor_moneda {
 		menu_conversor();
 	}
 	
-	public static Object menu_conversor() {
+	public static void menu_conversor() {
 		String [] menu = {"De Dolares a otras monedas","De otras monedas a Dolares"};
+		Object mensaje =  JOptionPane.showInputDialog(null,"Selecciona la operación que deseas realizar","Cambios de divisa",JOptionPane.QUESTION_MESSAGE,null,menu,menu[0]);
+		if (mensaje == menu[0]) {
+			dolar_to_other();
+		}
+	}
+	
+	public static Object dolar_to_other() {
+		//inicializando menu
+		String [] menu = new String[6];
+		
+		//llenando mi vector menu
+		for (int i = 0 ; i < menu.length; i++) {
+			menu[i]=("De "+coin[0]+" a "+coin[i+1]);
+		}
+		
 		Object mensaje =  JOptionPane.showInputDialog(null,"Selecciona la operación que deseas realizar","Cambios de divisa",JOptionPane.QUESTION_MESSAGE,null,menu,menu[0]);
 		return mensaje;
 	}
-	
-	
 }
