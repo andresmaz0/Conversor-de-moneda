@@ -55,7 +55,6 @@ public class Conversor_moneda {
 	}
 	
 	public static void calculos(double valor_ingresado,String mensaje) {
-		System.out.println(mensaje);
 		for (int i = 0; i < list_valores.length; i++) {
 			if(mensaje.equalsIgnoreCase("De "+coin[0]+" a "+coin[i+1])) {
 				JOptionPane.showMessageDialog(null, "El resultado fue " + (valor_ingresado * list_valores[i]) +" "+ coin[i+1]);
