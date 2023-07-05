@@ -2,8 +2,9 @@ import javax.swing.JOptionPane;
 
 public class Main {
 	public static void main(String[] args) {
-		String mensaje;
-		mensaje = JOptionPane.showInputDialog("Digite un mensaje");
-		JOptionPane.showMessageDialog(null,"mensaje ingresado fue: " + mensaje);
+		//Creando menu desplegable
+		String [] menu = {"Moneda","Temperatura"};
+		Object seleccion = JOptionPane.showInputDialog(null,"selecciona un conversor","Conversores",JOptionPane.QUESTION_MESSAGE,null,menu,menu[0]);
+		JOptionPane.showMessageDialog(null, seleccion);
 	}
 }
