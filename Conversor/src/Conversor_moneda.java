@@ -28,22 +28,14 @@ public class Conversor_moneda {
 		String [] menu = {"De Dolares a otras monedas","De otras monedas a Dolares"};
 		String mensaje =  (String) JOptionPane.showInputDialog(null,"Selecciona la operación que deseas realizar","Cambios de divisa",JOptionPane.QUESTION_MESSAGE,null,menu,menu[0]);
 		if (mensaje == menu[0]) {
-			dolar_to_other(valor);
+			menu_de_cambio(valor,"dolar_to_other");
 		}
 		else {
-			other_to_dolar(valor);
+			menu_de_cambio(valor,"other_to_dolar");
 		}
 	}
 	
-	public static void other_to_dolar(double valor) {
-		String opcion = "other_to_dolar";
-		String [] menu = menu_monedas(opcion);
-		String mensaje = (String) JOptionPane.showInputDialog(null,"Selecciona la operación que deseas realizar","Cambios de divisa",JOptionPane.QUESTION_MESSAGE,null,menu,menu[0]);
-		calculos(valor,mensaje,opcion);
-	}
-	
-	public static void dolar_to_other(double valor) {
-		String opcion = "dolar_to_other";
+	public static void menu_de_cambio(double valor,String opcion) {
 		String [] menu = menu_monedas(opcion);
 		String mensaje = (String) JOptionPane.showInputDialog(null,"Selecciona la operación que deseas realizar","Cambios de divisa",JOptionPane.QUESTION_MESSAGE,null,menu,menu[0]);
 		calculos(valor,mensaje,opcion);
