@@ -20,8 +20,17 @@ public class Conversor_moneda {
 	
 	//constructor
 	public Conversor_moneda() {
-		double valor = Double.parseDouble(JOptionPane.showInputDialog(null, "ingresa la cantidad de dinero que se desea convertir:"));
-		menu_conversor(valor);
+		entrada_datos();
+	}
+	
+	public static void entrada_datos() {
+		try{
+			double valor = Double.parseDouble(JOptionPane.showInputDialog(null, "ingresa la cantidad de dinero que se desea convertir:"));
+			menu_conversor(valor);
+		}catch(Exception exception) {
+			JOptionPane.showMessageDialog(null, "Error Ingresa por favor solo numeros");
+			entrada_datos();
+		}
 	}
 	
 	public static void menu_conversor(double valor) {
