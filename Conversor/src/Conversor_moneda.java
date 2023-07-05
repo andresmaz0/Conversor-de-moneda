@@ -16,7 +16,7 @@ public class Conversor_moneda {
 	Yuan = 7.24;
 	*/
 	static String [] coin = {"Dolar","Pesos Colombianos","Pesos Mexicanos","Euros","Libras esterlinas","Yenes Japoneses","Wones Coreanos","Yuanes Chinos"}; 
-	static double [] list_valores = {4157.98,17.07,0,79,0.92,144.67,1299.05,7.24};
+	static double [] list_valores = {4157.98,17.07,0.79,0.92,144.67,1299.05,7.24};
 	
 	//constructor
 	public Conversor_moneda() {
