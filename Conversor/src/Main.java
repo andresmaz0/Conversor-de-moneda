@@ -14,9 +14,9 @@ public class Main {
 	}
 	
 	public static void regresar_a_inicio() {
-		String [] menu = {"Si","No"};
-		String continuar = (String) JOptionPane.showInputDialog(null,"Desea volver al menu de inicio?","Continuar",JOptionPane.QUESTION_MESSAGE,null,menu,menu[0]);
-		if (continuar.equalsIgnoreCase("Si")) {
+		int continuar = JOptionPane.showConfirmDialog(null,"Desea volver al menu de inicio?","Continuar",JOptionPane.YES_NO_OPTION);
+		// 0--yes  1---No
+		if (continuar==0) {
 			inicio();
 		} else {
 			JOptionPane.showMessageDialog(null, "Gracias por usar la app vuelve pronto ;)");
