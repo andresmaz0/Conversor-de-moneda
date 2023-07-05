@@ -35,6 +35,10 @@ public class Conversor_moneda {
 		}
 	}
 	
+	public static void other_to_dolar(double valor) {
+		
+	}
+	
 	public static void dolar_to_other(double valor) {
 		
 		String [] menu = menu_monedas();
