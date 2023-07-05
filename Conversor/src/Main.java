@@ -5,6 +5,10 @@ public class Main {
 		//Creando menu desplegable
 		String [] menu = {"Moneda","Temperatura"};
 		Object seleccion = JOptionPane.showInputDialog(null,"Selecciona un conversor","Conversores",JOptionPane.QUESTION_MESSAGE,null,menu,menu[0]);
-		JOptionPane.showMessageDialog(null, seleccion);
+	
+		//Entrada de variables
+		if(seleccion == "Moneda") {
+			Conversor_moneda divisa = new Conversor_moneda();
+		}
 	}
 }
