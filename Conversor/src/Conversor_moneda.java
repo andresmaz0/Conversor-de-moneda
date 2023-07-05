@@ -25,4 +25,6 @@ public class Conversor_moneda {
 		Object mensaje =  JOptionPane.showInputDialog(null,"Selecciona la operación que deseas realizar","Cambios de divisa",JOptionPane.QUESTION_MESSAGE,null,menu,menu[0]);
 		return mensaje;
 	}
+	
+	
 }
