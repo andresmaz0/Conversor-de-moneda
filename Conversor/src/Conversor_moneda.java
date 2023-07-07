@@ -16,7 +16,7 @@ public class Conversor_moneda {
 	Yuan = 7.24;
 	*/
 	static String [] coin = {"Dolares","Pesos Colombianos","Pesos Mexicanos","Euros","Libras esterlinas","Yenes Japoneses","Wones Coreanos","Yuanes Chinos"}; 
-	static double [] list_valores = {4157.98,17.07,0.79,0.92,144.67,1299.05,7.24};
+	static double [] valores_monedas = {4157.98,17.07,0.79,0.92,144.67,1299.05,7.24};
 	
 	//constructor
 	public Conversor_moneda() {
@@ -76,16 +76,16 @@ public class Conversor_moneda {
 	
 	public static void calculos(double valor_ingresado,String mensaje,String opcion) {
 		if (opcion.equalsIgnoreCase("dolar_to_other")) {
-			for (int i = 0; i < list_valores.length; i++) {
+			for (int i = 0; i < valores_monedas.length; i++) {
 				if(mensaje.equalsIgnoreCase("De "+coin[0]+" a "+coin[i+1])) {
-					double redondeo = Math.round(valor_ingresado * list_valores[i]*100)/100d;
+					double redondeo = Math.round(valor_ingresado * valores_monedas[i]*100)/100d;
 					JOptionPane.showMessageDialog(null, "El resultado fue " + (redondeo) +"$ "+ coin[i+1]);
 				}
 			}
 		} else {
-			for (int i = 0; i < list_valores.length; i++) {
+			for (int i = 0; i < valores_monedas.length; i++) {
 				if(mensaje.equalsIgnoreCase("De "+coin[i+1]+" a "+coin[0])) {
-					double redondeo = Math.round(valor_ingresado * 1/list_valores[i] *100)/100d;
+					double redondeo = Math.round(valor_ingresado * 1/valores_monedas[i] *100)/100d;
 					JOptionPane.showMessageDialog(null, "El resultado fue " + (redondeo) +"$ "+ coin[0]);
 				}
 			}

@@ -1,5 +1,7 @@
 import javax.swing.JOptionPane;
 
+// Autor: Andres Mazo
+
 public class Main {
 	
 	public static void inicio() {
