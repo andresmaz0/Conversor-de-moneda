@@ -9,14 +9,16 @@ public class Main {
 	public static void inicio() {
 		//Creando menu desplegable
 		String [] menu = {"Moneda","Temperatura"};
+		String conversor = null;
 		try {
 			String seleccion = (String) JOptionPane.showInputDialog(null,"Selecciona un conversor","Menu de inicio",JOptionPane.QUESTION_MESSAGE,null,menu,menu[0]);
 			if(seleccion.equalsIgnoreCase("Moneda")) {
-				Conversor_moneda divisa = new Conversor_moneda("Moneda");
+				conversor = "Moneda";
 			}
 			if(seleccion.equalsIgnoreCase("Temperatura")){
-				Conversor_moneda divisa = new Conversor_moneda("Temperatura");
+				conversor = "Temperatura";
 			}
+			Conversor_moneda divisa = new Conversor_moneda(conversor);
 			regresar_a_inicio();
 		} catch(Exception NullPointerException){
 			mensaje_despedida();
