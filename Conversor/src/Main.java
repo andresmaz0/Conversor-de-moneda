@@ -13,8 +13,11 @@ public class Main {
 			String seleccion = (String) JOptionPane.showInputDialog(null,"Selecciona un conversor","Menu de inicio",JOptionPane.QUESTION_MESSAGE,null,menu,menu[0]);
 			if(seleccion.equalsIgnoreCase("Moneda")) {
 				Conversor_moneda divisa = new Conversor_moneda("Moneda");
-				regresar_a_inicio();
 			}
+			if(seleccion.equalsIgnoreCase("Temperatura")){
+				Conversor_moneda divisa = new Conversor_moneda("Temperatura");
+			}
+			regresar_a_inicio();
 		} catch(Exception NullPointerException){
 			mensaje_despedida();
 		}
