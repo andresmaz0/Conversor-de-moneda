@@ -58,48 +58,66 @@ public class Conversor_moneda {
 			String [] menu = {"De Dolares a otras monedas","De otras monedas a Dolares"};
 			String mensaje =  (String) JOptionPane.showInputDialog(null,"Selecciona la operación que deseas realizar","Cambios de divisa",JOptionPane.QUESTION_MESSAGE,null,menu,menu[0]);
 			if (mensaje == menu[0]) {
-				menu_de_cambio(valor,"dolar_to_other");
+				menu_de_cambio(valor,"dolar_to_other",tipo_conversor);
 			}
 			else {
-				menu_de_cambio(valor,"other_to_dolar");
+				menu_de_cambio(valor,"other_to_dolar",tipo_conversor);
 			}
 		}
 		if(tipo_conversor.equalsIgnoreCase("Temperatura")) {
 			String [] menu = {"De Celsius a otras unidades de medida","De otras unidades de medida a Celsius"};
 			String mensaje =  (String) JOptionPane.showInputDialog(null,"Selecciona la operación que deseas realizar","Cambio de unidad de medida",JOptionPane.QUESTION_MESSAGE,null,menu,menu[0]);
 			if (mensaje == menu[0]) {
-				menu_de_cambio(valor,"celsius_to_other");
+				menu_de_cambio(valor,"celsius_to_other",tipo_conversor);
 			}
 			else {
-				menu_de_cambio(valor,"other_to_celsius");
+				menu_de_cambio(valor,"other_to_celsius",tipo_conversor);
 			}
 		}
-
 	}
 	
-	public static void menu_de_cambio(double valor,String opcion) {
-		String [] menu = menu_monedas(opcion);
+	public static void menu_de_cambio(double valor,String opcion,String tipo_conversor) {
+		String [] menu = menu_monedas(opcion,tipo_conversor);
 		String mensaje = (String) JOptionPane.showInputDialog(null,"Selecciona la operación que deseas realizar","Cambios de divisa",JOptionPane.QUESTION_MESSAGE,null,menu,menu[0]);
 		calculos(valor,mensaje,opcion);
 	}
 	
-	public static String[] menu_monedas(String opcion) {
+	public static String[] menu_monedas(String opcion,String tipo_conversor) {
 		//inicializando menu
-		String [] menu = new String[7];
-		
-		if(opcion.equalsIgnoreCase("dolar_to_other")) {
-			//llenando mi vector menu
-			for (int i = 0 ; i < menu.length; i++) {
-				menu[i]=("De "+coin[0]+" a "+coin[i+1]);
+		if(tipo_conversor.equalsIgnoreCase("Moneda")) {
+			String [] menu = new String[7];
+			
+			if(opcion.equalsIgnoreCase("dolar_to_other")) {
+				//llenando mi vector menu
+				for (int i = 0 ; i < menu.length; i++) {
+					menu[i]=("De "+coin[0]+" a "+coin[i+1]);
+				}
+			} else {
+				//llenando mi vector menu
+				for (int i = 0 ; i < menu.length; i++) {
+					menu[i]=("De "+coin[i+1]+" a "+coin[0]);
+				}
 			}
-		} else {
-			//llenando mi vector menu
-			for (int i = 0 ; i < menu.length; i++) {
-				menu[i]=("De "+coin[i+1]+" a "+coin[0]);
-			}
+			//retorno una cadena de strings
+			return menu;
 		}
-		//retorno una cadena de strings
-		return menu;
+		else{
+			String [] menu = new String[4];
+			
+			if(opcion.equalsIgnoreCase("celsius_to_other")) {
+				//llenando mi vector menu
+				for (int i = 0 ; i < menu.length; i++) {
+					menu[i]=("De "+temperatura[0]+" a "+temperatura[i+1]);
+				}
+			} else {
+				//llenando mi vector menu
+				for (int i = 0 ; i < menu.length; i++) {
+					menu[i]=("De "+temperatura[i+1]+" a "+temperatura[0]);
+				}
+			}
+			//retorno una cadena de strings
+			return menu;
+		}
 	}
 	
 	public static void calculos(double valor_ingresado,String mensaje,String opcion) {
