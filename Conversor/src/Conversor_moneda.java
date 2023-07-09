@@ -17,9 +17,11 @@ public class Conversor_moneda {
 	*/
 	static String [] coin = {"Dolares","Pesos Colombianos","Pesos Mexicanos","Euros","Libras esterlinas","Yenes Japoneses","Wones Coreanos","Yuanes Chinos"}; 
 	static double [] valores_monedas = {4157.98,17.07,0.79,0.92,144.67,1299.05,7.24};
+	static String [] temperatura = {"Celsius(C)","Fahrenheit(F)","Kelvin(K)","Reaumur(R)","Rankine"};
+	static double [] valores_temp = {33.8,274.15,0.8,493.47};
 	
 	//constructor
-	public Conversor_moneda() {
+	public Conversor_moneda(String tipo_conversor) {
 		entrada_datos();
 	}
 	
