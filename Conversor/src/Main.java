@@ -17,7 +17,7 @@ public class Main {
 				regresar_a_inicio();
 			}
 		} catch(Exception NullPointerException){
-			regresar_a_inicio();
+			mensaje_despedida();
 		}
 	}
 	
@@ -27,8 +27,12 @@ public class Main {
 		if (continuar==0) {
 			inicio();
 		} else {
-			JOptionPane.showMessageDialog(null, "Gracias por usar la app vuelve pronto ;)");
+			mensaje_despedida();
 		}
+	}
+	
+	public static void mensaje_despedida() {
+		JOptionPane.showMessageDialog(null, "Gracias por usar la app vuelve pronto ;)");
 	}
 	
 	public static void main(String[] args) {
