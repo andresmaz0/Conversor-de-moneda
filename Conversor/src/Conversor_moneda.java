@@ -30,8 +30,13 @@ public class Conversor_moneda {
 	public static void entrada_datos(String tipo_conversor) {
 		try{
 			if(tipo_conversor.equalsIgnoreCase("Moneda")){
-				double valor = Double.parseDouble(JOptionPane.showInputDialog(null, "ingresa la cantidad de dinero que se desea convertir:"));
-			}	
+				double valor = Double.parseDouble(JOptionPane.showInputDialog(null, "ingresa la cantidad de dinero que desea convertir:"));
+				verificacion_valor(valor,tipo_conversor);
+			}
+			if(tipo_conversor.equalsIgnoreCase("Temperatura")) {
+				double valor = Double.parseDouble(JOptionPane.showInputDialog(null, "ingresa el valor de grados de temperatura que desea convertir:"));
+				verificacion_valor(valor,tipo_conversor);
+			}
 		}catch(Exception exception) {
 			JOptionPane.showMessageDialog(null, "Error Ingresa por favor solo numeros");
 			entrada_datos(tipo_conversor);
