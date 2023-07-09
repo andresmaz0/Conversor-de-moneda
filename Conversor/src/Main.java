@@ -1,16 +1,22 @@
 import javax.swing.JOptionPane;
 
-// Autor: Andres Mazo
+/**
+ *  Autor: Andres Mazo
+ */
 
 public class Main {
 	
 	public static void inicio() {
 		//Creando menu desplegable
 		String [] menu = {"Moneda","Temperatura"};
-		String seleccion = (String) JOptionPane.showInputDialog(null,"Selecciona un conversor","Menu de inicio",JOptionPane.QUESTION_MESSAGE,null,menu,menu[0]);
-		
-		if(seleccion.equalsIgnoreCase("Moneda")) {
-			Conversor_moneda divisa = new Conversor_moneda();
+		try {
+			String seleccion = (String) JOptionPane.showInputDialog(null,"Selecciona un conversor","Menu de inicio",JOptionPane.QUESTION_MESSAGE,null,menu,menu[0]);
+			System.out.println(seleccion);
+			if(seleccion.equalsIgnoreCase("Moneda")) {
+				Conversor_moneda divisa = new Conversor_moneda();
+				regresar_a_inicio();
+			}
+		} catch(Exception NullPointerException){
 			regresar_a_inicio();
 		}
 	}
