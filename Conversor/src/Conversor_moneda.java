@@ -19,24 +19,26 @@ public class Conversor_moneda {
 	static double [] valores_monedas = {4157.98,17.07,0.79,0.92,144.67,1299.05,7.24};
 	static String [] temperatura = {"Celsius(C)","Fahrenheit(F)","Kelvin(K)","Reaumur(R)","Rankine"};
 	static double [] valores_temp = {33.8,274.15,0.8,493.47};
+	static Object [] text_conversores = {coin,temperatura};
+	static Object [] valores_conversores = {valores_monedas,valores_temp};
 	
 	//constructor
 	public Conversor_moneda(String tipo_conversor) {
-		entrada_datos();
+		entrada_datos(tipo_conversor);
 	}
 	
-	public static void entrada_datos() {
+	public static void entrada_datos(String tipo_conversor) {
 		try{
 			double valor = Double.parseDouble(JOptionPane.showInputDialog(null, "ingresa la cantidad de dinero que se desea convertir:"));
 			if(valor>0) {
 				menu_conversor(valor);
 			}else {
 				JOptionPane.showMessageDialog(null, "Error Ingresa por favor numeros mayores a 0");
-				entrada_datos();
+				entrada_datos(tipo_conversor);
 			}	
 		}catch(Exception exception) {
 			JOptionPane.showMessageDialog(null, "Error Ingresa por favor solo numeros");
-			entrada_datos();
+			entrada_datos(tipo_conversor);
 		}
 	}
 	
