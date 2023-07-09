@@ -29,17 +29,22 @@ public class Conversor_moneda {
 	
 	public static void entrada_datos(String tipo_conversor) {
 		try{
-			double valor = Double.parseDouble(JOptionPane.showInputDialog(null, "ingresa la cantidad de dinero que se desea convertir:"));
-			if(valor>0) {
-				menu_conversor(valor);
-			}else {
-				JOptionPane.showMessageDialog(null, "Error Ingresa por favor numeros mayores a 0");
-				entrada_datos(tipo_conversor);
+			if(tipo_conversor.equalsIgnoreCase("Moneda")){
+				double valor = Double.parseDouble(JOptionPane.showInputDialog(null, "ingresa la cantidad de dinero que se desea convertir:"));
 			}	
 		}catch(Exception exception) {
 			JOptionPane.showMessageDialog(null, "Error Ingresa por favor solo numeros");
 			entrada_datos(tipo_conversor);
 		}
+	}
+	
+	public static void verificacion_valor(double valor_a_verificar,String tipo_conversor) {
+		if(valor_a_verificar>0) {
+			menu_conversor(valor_a_verificar);
+		}else {
+			JOptionPane.showMessageDialog(null, "Error Ingresa por favor numeros mayores a 0");
+			entrada_datos(tipo_conversor);
+	}
 	}
 	
 	public static void menu_conversor(double valor) {
