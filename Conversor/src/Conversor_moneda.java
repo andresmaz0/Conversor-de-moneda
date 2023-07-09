@@ -34,7 +34,7 @@ public class Conversor_moneda {
 				verificacion_valor(valor,tipo_conversor);
 			}
 			if(tipo_conversor.equalsIgnoreCase("Temperatura")) {
-				double valor = Double.parseDouble(JOptionPane.showInputDialog(null, "ingresa el valor de grados de temperatura que desea convertir:"));
+				double valor = Double.parseDouble(JOptionPane.showInputDialog(null, "ingresa el valor en grados de temperatura que desea convertir:"));
 				verificacion_valor(valor,tipo_conversor);
 			}
 		}catch(Exception exception) {
@@ -43,24 +43,38 @@ public class Conversor_moneda {
 		}
 	}
 	
+	//Verificacion de entrada de valores positivos
 	public static void verificacion_valor(double valor_a_verificar,String tipo_conversor) {
 		if(valor_a_verificar>0) {
-			menu_conversor(valor_a_verificar);
+			menu_conversor(valor_a_verificar,tipo_conversor);
 		}else {
 			JOptionPane.showMessageDialog(null, "Error Ingresa por favor numeros mayores a 0");
 			entrada_datos(tipo_conversor);
 	}
 	}
 	
-	public static void menu_conversor(double valor) {
-		String [] menu = {"De Dolares a otras monedas","De otras monedas a Dolares"};
-		String mensaje =  (String) JOptionPane.showInputDialog(null,"Selecciona la operación que deseas realizar","Cambios de divisa",JOptionPane.QUESTION_MESSAGE,null,menu,menu[0]);
-		if (mensaje == menu[0]) {
-			menu_de_cambio(valor,"dolar_to_other");
+	public static void menu_conversor(double valor,String tipo_conversor) {
+		if(tipo_conversor.equalsIgnoreCase("Moneda")) {
+			String [] menu = {"De Dolares a otras monedas","De otras monedas a Dolares"};
+			String mensaje =  (String) JOptionPane.showInputDialog(null,"Selecciona la operación que deseas realizar","Cambios de divisa",JOptionPane.QUESTION_MESSAGE,null,menu,menu[0]);
+			if (mensaje == menu[0]) {
+				menu_de_cambio(valor,"dolar_to_other");
+			}
+			else {
+				menu_de_cambio(valor,"other_to_dolar");
+			}
 		}
-		else {
-			menu_de_cambio(valor,"other_to_dolar");
+		if(tipo_conversor.equalsIgnoreCase("Temperatura")) {
+			String [] menu = {"De Celsius a otras unidades de medida","De otras unidades de medida a Celsius"};
+			String mensaje =  (String) JOptionPane.showInputDialog(null,"Selecciona la operación que deseas realizar","Cambio de unidad de medida",JOptionPane.QUESTION_MESSAGE,null,menu,menu[0]);
+			if (mensaje == menu[0]) {
+				menu_de_cambio(valor,"celsius_to_other");
+			}
+			else {
+				menu_de_cambio(valor,"other_to_celsius");
+			}
 		}
+
 	}
 	
 	public static void menu_de_cambio(double valor,String opcion) {
