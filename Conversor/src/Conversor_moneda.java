@@ -17,7 +17,7 @@ public class Conversor_moneda {
 	*/
 	static String [] coin = {"Dolares","Pesos Colombianos","Pesos Mexicanos","Euros","Libras esterlinas","Yenes Japoneses","Wones Coreanos","Yuanes Chinos"}; 
 	static double [] valores_monedas = {4157.98,17.07,0.79,0.92,144.67,1299.05,7.24};
-	static String [] temperatura = {"Celsius(C)","Fahrenheit(F)","Kelvin(K)","Reaumur(R)","Rankine"};
+	static String [] temperatura = {"Grados Celsius(C)","Grados Fahrenheit(F)","Grados Kelvin(K)","Grados Reaumur(R)","Grados Rankine"};
 	static double [] valores_temp = {33.8,274.15,0.8,493.47};
 	
 	//constructor
@@ -63,7 +63,7 @@ public class Conversor_moneda {
 			}
 		}
 		if(tipo_conversor.equalsIgnoreCase("Temperatura")) {
-			String [] menu = {"De Celsius a otras unidades de medida","De otras unidades de medida a Celsius"};
+			String [] menu = {"De Grados Celsius a otras unidades de medida","De otras unidades de medida a Grados Celsius"};
 			String mensaje =  (String) JOptionPane.showInputDialog(null,"Selecciona la operación que deseas realizar","Cambio de unidad de medida",JOptionPane.QUESTION_MESSAGE,null,menu,menu[0]);
 			if (mensaje == menu[0]) {
 				menu_de_cambio(valor,"celsius_to_other",tipo_conversor);
