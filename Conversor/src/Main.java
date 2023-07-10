@@ -18,7 +18,7 @@ public class Main {
 			if(seleccion.equalsIgnoreCase("Temperatura")){
 				conversor = "Temperatura";
 			}
-			Conversor_moneda divisa = new Conversor_moneda(conversor);
+			Conversor divisa = new Conversor(conversor);
 			regresar_a_inicio();
 		} catch(Exception NullPointerException){
 			mensaje_despedida();

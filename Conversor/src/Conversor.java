@@ -1,7 +1,7 @@
 import javax.swing.JOptionPane;
 
 
-public class Conversor_moneda {
+public class Conversor {
 	/* Esta clase se encarga de todo el calculo de las monedas
 	la moneda que se utiliza en este codigo son dolares
 	
@@ -21,7 +21,7 @@ public class Conversor_moneda {
 	static double [] valores_temp = {33.8,274.15,0.8,493.47};
 	
 	//constructor
-	public Conversor_moneda(String tipo_conversor) {
+	public Conversor(String tipo_conversor) {
 		entrada_datos(tipo_conversor);
 	}
 	
