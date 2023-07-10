@@ -19,8 +19,6 @@ public class Conversor_moneda {
 	static double [] valores_monedas = {4157.98,17.07,0.79,0.92,144.67,1299.05,7.24};
 	static String [] temperatura = {"Celsius(C)","Fahrenheit(F)","Kelvin(K)","Reaumur(R)","Rankine"};
 	static double [] valores_temp = {33.8,274.15,0.8,493.47};
-	static Object [] text_conversores = {coin,temperatura};
-	static Object [] valores_conversores = {valores_monedas,valores_temp};
 	
 	//constructor
 	public Conversor_moneda(String tipo_conversor) {
@@ -79,7 +77,7 @@ public class Conversor_moneda {
 	public static void menu_de_cambio(double valor,String opcion,String tipo_conversor) {
 		String [] menu = menu_de_calculos(opcion,tipo_conversor);
 		String mensaje = (String) JOptionPane.showInputDialog(null,"Selecciona la operación que deseas realizar","Seleccion de calculo a realizar",JOptionPane.QUESTION_MESSAGE,null,menu,menu[0]);
-		calculos(valor,mensaje,opcion);
+		calculos(valor,mensaje,opcion,tipo_conversor);
 	}
 	
 	public static String[] menu_de_calculos(String opcion,String tipo_conversor) {
@@ -122,19 +120,31 @@ public class Conversor_moneda {
 		return menu;
 	}
 	
-	public static void calculos(double valor_ingresado,String mensaje,String opcion) {
-		if (opcion.equalsIgnoreCase("dolar_to_other")) {
-			for (int i = 0; i < valores_monedas.length; i++) {
-				if(mensaje.equalsIgnoreCase("De "+coin[0]+" a "+coin[i+1])) {
-					double redondeo = Math.round(valor_ingresado * valores_monedas[i]*100)/100d;
-					JOptionPane.showMessageDialog(null, "El resultado fue " + (redondeo) +"$ "+ coin[i+1]);
+	public static void calculos(double valor_ingresado,String mensaje,String opcion,String tipo_conversor) {
+		String verificar;
+		double [] vector_numeros;
+		String [] vector_texto;
+		if(tipo_conversor.equalsIgnoreCase("Moneda")) {
+			verificar = "dolar_to_other";
+			vector_numeros = valores_monedas;
+			vector_texto = coin;
+		}else {
+			verificar = "celsius_to_other";
+			vector_numeros = valores_temp;
+			vector_texto = temperatura;
+		}
+		if (opcion.equalsIgnoreCase(verificar)) {
+			for (int i = 0; i < vector_numeros.length; i++) {
+				if(mensaje.equalsIgnoreCase("De "+vector_texto[0]+" a "+vector_texto[i+1])) {
+					double redondeo = Math.round(valor_ingresado * vector_numeros[i]*100)/100d;
+					JOptionPane.showMessageDialog(null, "El resultado fue " + (redondeo) +" "+ vector_texto[i+1]);
 				}
 			}
 		} else {
-			for (int i = 0; i < valores_monedas.length; i++) {
-				if(mensaje.equalsIgnoreCase("De "+coin[i+1]+" a "+coin[0])) {
-					double redondeo = Math.round(valor_ingresado * 1/valores_monedas[i] *100)/100d;
-					JOptionPane.showMessageDialog(null, "El resultado fue " + (redondeo) +"$ "+ coin[0]);
+			for (int i = 0; i < vector_numeros.length; i++) {
+				if(mensaje.equalsIgnoreCase("De "+vector_texto[i+1]+" a "+vector_texto[0])) {
+					double redondeo = Math.round(valor_ingresado * 1/vector_numeros[i] *100)/100d;
+					JOptionPane.showMessageDialog(null, "El resultado fue " + (redondeo) +" "+ vector_texto[0]);
 				}
 			}
 		}
