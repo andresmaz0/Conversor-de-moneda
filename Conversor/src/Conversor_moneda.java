@@ -87,37 +87,39 @@ public class Conversor_moneda {
 		if(tipo_conversor.equalsIgnoreCase("Moneda")) {
 			String [] menu = new String[7];
 			
-			if(opcion.equalsIgnoreCase("dolar_to_other")) {
-				//llenando mi vector menu
-				for (int i = 0 ; i < menu.length; i++) {
-					menu[i]=("De "+coin[0]+" a "+coin[i+1]);
-				}
-			} else {
-				//llenando mi vector menu
-				for (int i = 0 ; i < menu.length; i++) {
-					menu[i]=("De "+coin[i+1]+" a "+coin[0]);
-				}
-			}
-			//retorno una cadena de strings
-			return menu;
+			return menu = creador_menu(opcion,tipo_conversor,menu);
 		}
 		else{
 			String [] menu = new String[4];
 			
-			if(opcion.equalsIgnoreCase("celsius_to_other")) {
-				//llenando mi vector menu
-				for (int i = 0 ; i < menu.length; i++) {
-					menu[i]=("De "+temperatura[0]+" a "+temperatura[i+1]);
-				}
-			} else {
-				//llenando mi vector menu
-				for (int i = 0 ; i < menu.length; i++) {
-					menu[i]=("De "+temperatura[i+1]+" a "+temperatura[0]);
-				}
-			}
-			//retorno una cadena de strings
-			return menu;
+			return menu = creador_menu(opcion,tipo_conversor,menu);
 		}
+	}
+	
+	public static String[] creador_menu(String opcion,String tipo_conversor,String[] menu) {
+		String [] vector_texto;
+		String verificar;
+		if(tipo_conversor.equalsIgnoreCase("Moneda")) {
+			vector_texto = coin;
+			verificar = "dolar_to_other";
+		}
+		else {
+			vector_texto = temperatura;
+			verificar = "celsius_to_other";
+		}
+		if(opcion.equalsIgnoreCase(verificar)) {
+			//llenando mi vector menu
+			for (int i = 0 ; i < menu.length; i++) {
+				menu[i]=("De "+vector_texto[0]+" a "+vector_texto[i+1]);
+			}
+		} else {
+			//llenando mi vector menu
+			for (int i = 0 ; i < menu.length; i++) {
+				menu[i]=("De "+vector_texto[i+1]+" a "+vector_texto[0]);
+			}
+		}
+		//retorno una cadena de strings
+		return menu;
 	}
 	
 	public static void calculos(double valor_ingresado,String mensaje,String opcion) {
