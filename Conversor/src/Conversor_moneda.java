@@ -77,12 +77,12 @@ public class Conversor_moneda {
 	}
 	
 	public static void menu_de_cambio(double valor,String opcion,String tipo_conversor) {
-		String [] menu = menu_monedas(opcion,tipo_conversor);
-		String mensaje = (String) JOptionPane.showInputDialog(null,"Selecciona la operación que deseas realizar","Cambios de divisa",JOptionPane.QUESTION_MESSAGE,null,menu,menu[0]);
+		String [] menu = menu_de_calculos(opcion,tipo_conversor);
+		String mensaje = (String) JOptionPane.showInputDialog(null,"Selecciona la operación que deseas realizar","Seleccion de calculo a realizar",JOptionPane.QUESTION_MESSAGE,null,menu,menu[0]);
 		calculos(valor,mensaje,opcion);
 	}
 	
-	public static String[] menu_monedas(String opcion,String tipo_conversor) {
+	public static String[] menu_de_calculos(String opcion,String tipo_conversor) {
 		//inicializando menu
 		if(tipo_conversor.equalsIgnoreCase("Moneda")) {
 			String [] menu = new String[7];
