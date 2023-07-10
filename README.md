@@ -1,4 +1,4 @@
-![](https://drive.google.com/file/d/1wR6aLO2e8_fjdIXVQBtZvi1rKiz7d4oD/view?usp=drive_link)
+![conversor_moneda](https://github.com/andresmaz0/Conversor-de-moneda/assets/88501273/f40c285e-5490-4762-8c85-ddc82cfecf8e)
 
 <em>Conversor-de-moneda</em>
 
